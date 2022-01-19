@@ -1,0 +1,26 @@
+services:
+  postgres:
+    image: postgres:14
+    restart: always
+    environment:
+      - POSTGRES_USER=root
+      - POSTGRES_PASSWORD=root
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    ports:
+      - 5432:5432
+
+  next:
+    build:
+      context: .
+      dockerfile: ./nextjs.dockerfile
+    stdin_open: true
+    volumes:
+      - ./:/usr/src/open-rpg
+      - /usr/src/open-rpg/node_modules
+    ports:
+      - 3000:3000
+    container_name: nextjs
+
+volumes:
+  pgdata:
