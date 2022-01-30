@@ -9,6 +9,9 @@
     "prisma": "prisma",
     "prisma:migrate": "prisma migrate dev"
   },
+  "prisma": {
+    "schema": "src/prisma/schema.prisma"
+  },
   "dependencies": {
     "@emotion/cache": "^11.7.1",
     "@emotion/react": "^11.7.1",
